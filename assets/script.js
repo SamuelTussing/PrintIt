@@ -22,6 +22,8 @@ const image = document.querySelector('.banner-img')
 image.src = slides[0].image
 
 
+
+
 let position=0;
 document.body.onload=function(){
 
@@ -54,9 +56,6 @@ for(i=0; i<slides.length; i++){
 
 
 
-
-
-
 //GESTION DES CLICS//
 //fonction sur le clic gauche les images changent
 g.onclick=function(){
@@ -67,6 +66,7 @@ g.onclick=function(){
 
         position --
         image.src = slides[position].image
+        document.getElementById("a").innerHTML = slides[position].tagLine
 
         DivSelected=document.getElementById(position)
         DivSelected.classList.add("dot_selected") 
@@ -78,6 +78,7 @@ g.onclick=function(){
 
         position = 3
         image.src = slides[position].image
+        document.getElementById("a").innerHTML = slides[position].tagLine
 
         DivSelected=document.getElementById(position)
         DivSelected.classList.add("dot_selected") 
@@ -94,6 +95,7 @@ d.onclick=function(){
 
         position ++
         image.src = slides[position].image
+        document.getElementById("a").innerHTML = slides[position].tagLine
 
         DivSelected=document.getElementById(position)
         DivSelected.classList.add("dot_selected")    
@@ -104,6 +106,7 @@ d.onclick=function(){
 
         position = 0
         image.src = slides[position].image
+        document.getElementById("a").innerHTML = slides[position].tagLine
 
         DivSelected=document.getElementById(position)
         DivSelected.classList.add("dot_selected")
