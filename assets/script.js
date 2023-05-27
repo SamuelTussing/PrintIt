@@ -1,64 +1,122 @@
 const slides = [
 	{
-		"image":"slide1.jpg",
+		"image":"assets/images/slideshow/slide1.jpg",
 		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
 	},
 	{
-		"image":"slide2.jpg",
+		"image":"assets/images/slideshow/slide2.jpg",
 		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
 	},
 	{
-		"image":"slide3.jpg",
+		"image":"assets/images/slideshow/slide3.jpg",
 		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
 	},
 	{
-		"image":"slide4.png",
+		"image":"assets/images/slideshow/slide4.png",
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
 
+//on change la src de l'image
+const image = document.querySelector('.banner-img')
+image.src = slides[0].image
 
-currentSlide = document.querySelector("banner-img")
-currentSlide = slides[0]
 
+let position=0;
+document.body.onload=function(){
 
-//on cherche le btn gauche et on ajoute un event listener au clic 
-let LeftClick = document.querySelector(".arrow_left")
-let RightClick = document.querySelector(".arrow_right")
-LeftClick.addEventListener("click", ()=>{
-	console.log("cliqué!")
-	
-})
+//nbrPhoto= nbr photo dans le tableau
+ nbrPhoto=slides.length;
+console.log(nbrPhoto)
+const photo = slides[0]
 
-//on cherche le btn droit et on ajoute un event listener au clic 
-RightClick.addEventListener("click", ()=>{
+    //CREATION DES BALISES DOT//
 
-currentSlide = slides[1]
-
-	const resetActiveDot = () => {
-		const activeDot = document.querySelector(".dot_selected")
-		activeDot.classList.remove("dot_selected")
-	}
-
-})
-
-//on défini une var pour nombre de photos et le parent des dots
-nbrPhotos = slides.length
-let containerDots = document.querySelector(".dots")
+    let containerDots = document.querySelector(".dots")
+    
 
 //tant que i< au nombre de photos dans tableau, on ajoute + à i et on créé une div
 //on créé autant de div que de photos dans le tableau
 for(i=0; i<slides.length; i++){
 	//création de la div puis on associe une class puis un parent
-	divDot=document.createElement("div")
-	divDot.className = "dot"
-	containerDots.appendChild(divDot)
+        if(i===0){
+            divDot=document.createElement("div")
+            divDot.className = "dot dot_selected"
+            divDot.setAttribute("id",i)
+            containerDots.appendChild(divDot)
+        }else{
+            divDot=document.createElement("div")
+            divDot.className = "dot"
+            divDot.setAttribute("id",i)
+            containerDots.appendChild(divDot)
+        }
 }
 
-//on récupère les dots dans le fichier html
-const Dots = document.querySelectorAll('.dot')
 
-const resetActiveDot = () => {
-	const activeDot = document.querySelector(".dot_selected")
-	activeDot.classList.remove("dot_selected")
+
+
+
+
+//GESTION DES CLICS//
+//fonction sur le clic gauche les images changent
+g.onclick=function(){
+    if(position >0){
+        DivSelected=document.getElementById(position)
+        //enlever class a id=0
+        DivSelected.classList.remove("dot_selected")
+
+        position --
+        image.src = slides[position].image
+
+        DivSelected=document.getElementById(position)
+        DivSelected.classList.add("dot_selected") 
+
+    }else{
+        DivSelected=document.getElementById(position)
+        //enlever class a id=0
+        DivSelected.classList.remove("dot_selected")
+
+        position = 3
+        image.src = slides[position].image
+
+        DivSelected=document.getElementById(position)
+        DivSelected.classList.add("dot_selected") 
+    }
+}
+
+//fonction sur le clic droit les images changent
+d.onclick=function(){
+    if(position <nbrPhoto-1){
+
+        DivSelected=document.getElementById(position)
+        //enlever class a id=0
+        DivSelected.classList.remove("dot_selected")
+
+        position ++
+        image.src = slides[position].image
+
+        DivSelected=document.getElementById(position)
+        DivSelected.classList.add("dot_selected")    
+    }else{
+        DivSelected=document.getElementById(position)
+        //enlever class a id=0
+        DivSelected.classList.remove("dot_selected")
+
+        position = 0
+        image.src = slides[position].image
+
+        DivSelected=document.getElementById(position)
+        DivSelected.classList.add("dot_selected")
+    }
+}
+
+    //CREATION DES DIVS IMAGES//
+    //on récupère les éléments html (le container (parent) qui contient les images) et les flèches
+    container=document.getElementById("banner")
+    g=document.getElementById("g")
+    d=document.getElementById("d")
+
+
+
+
 }
