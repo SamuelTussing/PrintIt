@@ -20,11 +20,14 @@ const slides = [
 //on change la src de l'image
 const image = document.querySelector('.banner-img')
 image.src = slides[0].image
-
-
-
-
 let position=0;
+
+//on récupère les éléments html (le container (parent) qui contient les images) et les flèches
+container=document.getElementById("banner")
+g=document.getElementById("g")
+d=document.getElementById("d")
+
+
 document.body.onload=function(){
 
 //nbrPhoto= nbr photo dans le tableau
@@ -121,13 +124,6 @@ d.onclick=function(){
         DivSelected.classList.add("dot_selected")
     }
 }
-
-    //on récupère les éléments html (le container (parent) qui contient les images) et les flèches
-    container=document.getElementById("banner")
-    g=document.getElementById("g")
-    d=document.getElementById("d")
-
-
 
 
 }
