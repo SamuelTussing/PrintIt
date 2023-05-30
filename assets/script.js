@@ -96,7 +96,15 @@ d.onclick=function(){
 
         position ++
         image.src = slides[position].image
-        document.getElementById("a").innerHTML = slides[position].tagLine
+        ////
+        let Tagline = document.getElementById("a")
+        Tagline.remove()
+        let banner = document.getElementById("banner")
+        let newtagline = document.createElement("p")
+        newtagline.setAttribute("id","a")
+        newtagline.innerHTML = slides[position].tagLine
+        banner.appendChild(newtagline)
+        //document.getElementById("a").innerHTML = slides[position].tagLine
 
         DivSelected=document.getElementById(position)
         DivSelected.classList.add("dot_selected")    
@@ -114,7 +122,6 @@ d.onclick=function(){
     }
 }
 
-    //CREATION DES DIVS IMAGES//
     //on récupère les éléments html (le container (parent) qui contient les images) et les flèches
     container=document.getElementById("banner")
     g=document.getElementById("g")
