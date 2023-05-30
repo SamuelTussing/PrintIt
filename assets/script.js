@@ -85,6 +85,7 @@ g.onclick=function(){
     }
 }
 
+
 //fonction sur le clic droit les images changent
 d.onclick=function(){
     if(position <nbrPhoto-1){

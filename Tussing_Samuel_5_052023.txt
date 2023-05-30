@@ -1,0 +1,7 @@
+Projet 5 : Print It
+
+lien vers repo Git :
+https://github.com/SamuelTussing/PrintIt
+
+lien vers la page GitHub Pages du site :
+https://samueltussing.github.io/PrintIt/
